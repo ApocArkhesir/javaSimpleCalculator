@@ -16,7 +16,7 @@ public class Calculator {
         frame.getContentPane().add(panel, BorderLayout.NORTH);
         panel.setLayout(new BorderLayout(0, 0));
 
-        JTextField textField = new JTextField();
+        textField = new JTextField();
         textField.setHorizontalAlignment(SwingConstants.RIGHT);
         panel.add(textField);
         textField.setColumns(10);
@@ -37,7 +37,7 @@ public class Calculator {
         digitPanel.add(button_7);
 
         JButton button_8 = new JButton("8");
-        button_7.addActionListener(e -> pressedDigit("8"));
+        button_8.addActionListener(e -> pressedDigit("8"));
         digitPanel.add(button_8);
 
         JButton button_9 = new JButton("9");
@@ -135,9 +135,9 @@ public class Calculator {
         Double value = null;
         String text = textField.getText();
         if (text != null && text.length() > 0) {
-            return Double.parseDouble(text.replace(',', '.'));
+            value = Double.parseDouble(text.replace(',', '.'));
         }
-        return null;
+        return value;
     }
 
     private void setDisplay(Double value) {
