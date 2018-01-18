@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.awt.*;
 
 public class Main {
 
@@ -16,7 +15,7 @@ public class Main {
             e.printStackTrace();
         }
 
-        EventQueue.invokeLater(() -> {
+        SwingUtilities.invokeLater(() -> {
             Calculator window = new Calculator();
             window.frame.setVisible(true);
         });
