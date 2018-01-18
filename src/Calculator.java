@@ -149,10 +149,10 @@ public class Calculator {
 
     private void pressedDigit(String digit) {
         if (eraseBefore) {
-            textField.setText(digit);
+            textField.setText("");
             eraseBefore = false;
         }
-        else executeAction();
+        textField.setText(textField.getText() + digit);
     }
 
     private void pressedAction(Action action) {
@@ -177,16 +177,16 @@ public class Calculator {
                 else if (Action.DIVIDE.equals(currentAction))
                     if (secondNumber != 0)
                         firstNumber /= secondNumber;
-                else if (Action.SQUAREROOT.equals(currentAction))
-                    firstNumber = Math.sqrt(firstNumber);
-                else if (Action.INVERT.equals(currentAction))
-                    firstNumber = Math.pow(firstNumber, -1);
-                else if (Action.LOG.equals(currentAction))
-                    firstNumber = Math.log(firstNumber);
                 else if (Action.PERCENT.equals(currentAction))
                     if (secondNumber != 0)
-                        firstNumber = (firstNumber / secondNumber) * 100;
+                        firstNumber = (firstNumber * secondNumber) / 100;
             }
+            else if (Action.SQUAREROOT.equals(currentAction))
+                firstNumber = Math.sqrt(firstNumber);
+            else if (Action.INVERT.equals(currentAction))
+                firstNumber = Math.pow(firstNumber, -1);
+            else if (Action.LOG.equals(currentAction))
+                firstNumber = Math.log(firstNumber);
         }
 
         setDisplay(firstNumber);
