@@ -16,8 +16,12 @@ public class Main {
         }
 
         SwingUtilities.invokeLater(() -> {
-            Calculator window = new Calculator();
-            window.frame.setVisible(true);
+            try {
+                Calculator window = new Calculator();
+                window.frame.setVisible(true);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         });
     }
 }
